@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../src/styles/form.css'
+import '../styles/form.css'
 
 type formValues = {
     value: string
