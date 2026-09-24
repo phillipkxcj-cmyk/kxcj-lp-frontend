@@ -24,9 +24,6 @@ function Shop() {
           </a>
          
         </div>
-        {/* <div className="footer-redux-container">
-          <FooterRedux />
-        </div> */}
       </div>
     </div>
   );
