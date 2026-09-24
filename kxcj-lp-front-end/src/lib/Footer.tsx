@@ -31,7 +31,9 @@ function Footer() {
         rel="noreferrer"
         className="facebook-link"
         aria-label="KXCJ Facebook page"
-      />
+      >
+        <span className="sr-only">KXCJ Facebook page</span>
+      </a>
     </div>
   );
 }

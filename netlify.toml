@@ -1,0 +1,22 @@
+# Build configuration for kxcj.org
+# Kept in the repo (rather than only in the Netlify dashboard) so the
+# settings travel with the code and survive account or site changes.
+
+[build]
+  # The React app lives in a subfolder; everything below is relative to it.
+  base    = "kxcj-lp-front-end"
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  # react-scripts 5 needs a modern Node. Pinned so local and CI match.
+  NODE_VERSION = "20"
+
+# Single-page app: every route must fall through to index.html so that
+# deep links like /donate work on a hard refresh.
+# (public/_redirects already does this; repeated here so the rule is
+# visible in one place.)
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
