@@ -31,13 +31,7 @@ function Home() {
 
   const logoImage = data?.allHome?.[0].image?.asset?.url ?? logo;
 
-  const openNewWindow = () => {
-    window.open(
-      "http://216.115.15.236:8888/KXCJ",
-      "_blank",
-      "width=800,height=600"
-    );
-  };
+  const listenNowUrl = "http://216.115.15.236:8888/KXCJ";
 
   return (
     <div className="homepage">
@@ -49,36 +43,43 @@ function Home() {
           <img src={logoImage} alt="logo" />
         </div>
         <div className="buttons-home">
-          <a href={isMobile ? "/" : "/listenNow"}>
-            <img
-              src={ListenNow}
-              id="plank"
-              alt="menu button"
-              onClick={openNewWindow}
-            />
-          </a>
+          {isMobile ? (
+            <a href="/">
+              <img src={ListenNow} id="plank" alt="menu button" />
+            </a>
+          ) : (
+            <a href={listenNowUrl} target="_blank" rel="noopener noreferrer">
+              <img src={ListenNow} id="plank" alt="menu button" />
+            </a>
+          )}
           <a href="/donate" className="donatePlank">
             <img src={Donate} id="plank" alt="menu button" />
           </a>
-          {isMobile && (<a href="/listenNowMobile" className="donatePlank">
-            <img src={Schedule} id="plank" alt="menu button" />
-          </a>)}
-          {isMobile && (<a
-            href="https://archive.org/details/@kxcj-lp"
-            className="donatePlank"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={Archive} id="plank" alt="menu button" />
-          </a>)}
-          {isMobile && (<a
-            href="https://kxcj-lp-merch.printify.me"
-            className="donatePlank shopPlank"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={Shop} id="plank" alt="shop button" />
-          </a>)}
+          {isMobile && (
+            <a href="/listenNowMobile" className="donatePlank">
+              <img src={Schedule} id="plank" alt="menu button" />
+            </a>
+          )}
+          {isMobile && (
+            <a
+              href="https://archive.org/details/@kxcj-lp"
+              className="donatePlank"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={Archive} id="plank" alt="menu button" />
+            </a>
+          )}
+          {isMobile && (
+            <a
+              href="https://kxcj-lp-merch.printify.me"
+              className="donatePlank shopPlank"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={Shop} id="plank" alt="shop button" />
+            </a>
+          )}
           {!isMobile && (
             <a href="/getInvolved" className="getInvolvedPlank" id="lastChild">
               <img src={GetInvolved} id="plank" alt="menu button" />

@@ -41,13 +41,7 @@ function Donate() {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const { loading, error, data } = useQuery(GET_HOME_QUERY);
 
-  const openNewWindow = () => {
-    window.open(
-      "http://216.115.15.236:8888/KXCJ",
-      "_blank",
-      "width=800,height=600"
-    );
-  };
+  const listenNowUrl = "http://216.115.15.236:8888/KXCJ";
 
   useEffect(() => {
     let cancelled = false;
@@ -122,7 +116,11 @@ function Donate() {
   );
 
   const donateVehicleButton = (
-    <a role="button" href="https://careasy.org/KXCJ" className="button-wood-plank">
+    <a
+      role="button"
+      href="https://careasy.org/KXCJ"
+      className="button-wood-plank"
+    >
       <img src={DonateAVehicle} alt="archive button" id="donate" />
     </a>
   );
@@ -172,13 +170,8 @@ function Donate() {
           </>
         )}
         <div className="listenMobileButton">
-          <a href="/donate">
-            <img
-              src={ListenNow}
-              alt="archive button"
-              id="listenButton"
-              onClick={openNewWindow}
-            />
+          <a href={listenNowUrl} target="_blank" rel="noopener noreferrer">
+            <img src={ListenNow} alt="archive button" id="listenButton" />
           </a>
         </div>
         {!isMobile && <Footer />}
