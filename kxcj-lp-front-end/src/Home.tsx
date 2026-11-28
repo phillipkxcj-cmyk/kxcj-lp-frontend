@@ -30,6 +30,11 @@ function Home() {
   if (error) return <ErrorState error={error} />;
 
   const logoImage = data?.allHome?.[0].image?.asset?.url ?? logo;
+  const listenNowUrl = "http://216.115.15.236:8888/KXCJ";
+
+  const openStream = () => {
+    window.open(listenNowUrl, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="homepage">
@@ -43,11 +48,21 @@ function Home() {
         <div className="buttons-home">
           {isMobile ? (
             <a href="/">
-              <img src={ListenNow} id="plank" alt="menu button" />
+              <img
+                src={ListenNow}
+                id="plank"
+                alt="menu button"
+                onClick={openStream}
+              />
             </a>
           ) : (
             <a href="/listenNow">
-              <img src={ListenNow} id="plank" alt="menu button" />
+              <img
+                src={ListenNow}
+                id="plank"
+                alt="menu button"
+                onClick={openStream}
+              />
             </a>
           )}
           <a href="/donate" className="donatePlank">
