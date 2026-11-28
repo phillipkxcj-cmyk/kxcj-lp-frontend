@@ -33,7 +33,12 @@ function Home() {
   const listenNowUrl = "http://216.115.15.236:8888/KXCJ";
 
   const openStream = () => {
-    window.open(listenNowUrl, "_blank", "noopener,noreferrer");
+    const streamWindow = window.open(
+      listenNowUrl,
+      "_blank",
+      "popup,width=800,height=600"
+    );
+    if (streamWindow) streamWindow.opener = null;
   };
 
   return (
