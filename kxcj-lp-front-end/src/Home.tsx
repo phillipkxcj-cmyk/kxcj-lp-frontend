@@ -31,8 +31,6 @@ function Home() {
 
   const logoImage = data?.allHome?.[0].image?.asset?.url ?? logo;
 
-  const listenNowUrl = "http://216.115.15.236:8888/KXCJ";
-
   return (
     <div className="homepage">
       <div className="landscape-message">
@@ -48,7 +46,7 @@ function Home() {
               <img src={ListenNow} id="plank" alt="menu button" />
             </a>
           ) : (
-            <a href={listenNowUrl} target="_blank" rel="noopener noreferrer">
+            <a href="/listenNow">
               <img src={ListenNow} id="plank" alt="menu button" />
             </a>
           )}
